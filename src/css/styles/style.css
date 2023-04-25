@@ -12706,7 +12706,7 @@ a.read_more i {
 
 .switch {
   margin-bottom: -5px;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   height: 24px;
   width: 44px;
   background-color: #eeeeee;
@@ -16773,4 +16773,31 @@ NEW ITEMS
 .newitem__skeleton--like {
   width: 50px;
   height: 24px;
+}
+
+/* 
+TOP SELLERS
+*/
+
+.topseller__skeleton--name,
+.topseller__skeleton--price,
+.topseller__skeleton--author {
+  background-color: lightgray;
+}
+
+.topseller__skeleton--author {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.topseller__skeleton--name {
+  width: 90px;
+  height: 20px;
+}
+
+.topseller__skeleton--price {
+  width: 40px;
+  height: 20px;
+  margin-top: 12px;
 }
