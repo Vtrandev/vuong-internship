@@ -8,7 +8,7 @@ const TopSellers = () => {
 
   useEffect(() => {
     fetchTopSellers();
-    // setLoading(false);
+    setLoading(false);
   }, [loading])
   
 
