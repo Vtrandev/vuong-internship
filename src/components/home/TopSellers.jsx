@@ -8,7 +8,7 @@ const TopSellers = () => {
 
   useEffect(() => {
     fetchTopSellers();
-    setLoading(false);
+    // setLoading(false);
   }, [loading])
   
 
@@ -36,8 +36,8 @@ const TopSellers = () => {
                         <i className="fa fa-check"></i>
                       </div>
                       <div className="author_list_info">
-                        <div className="topseller__skeleton--name"></div>
-                        <div className="topseller__skeleton--price"></div>
+                        <div className="topseller__skeleton--name skeleton-box"></div>
+                        <div className="topseller__skeleton--price skeleton-box"></div>
                       </div>
                     </li>
                   ))
