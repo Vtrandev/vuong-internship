@@ -16651,9 +16651,9 @@ img {
 }
 
 .skeleton-box {
-  display: inline-block;
-  height: 1em;
-  position: relative;
+  /* display: inline-block; */
+  /* height: 1em; */
+  /* position: relative; */
   overflow: hidden;
   background-color: #dddbdd;
 }
@@ -16715,16 +16715,17 @@ img {
   cursor: not-allowed;
 }
 
-.hotcollection__skeleton {
+.hotcollection__skeleton,
+.newitem__skeleton--nft {
   background-color: lightgray;
 }
 
-.hotcollection__skeleton--author {
+.hotcollection__skeleton--author,
+.newitem__skeleton--author {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: lightgray;
-
 }
 
 .hotcollection__skeleton--title {
@@ -16746,4 +16747,30 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* 
+NEW ITEMS
+*/
+
+.newitem__skeleton--title,
+.newitem__skeleton--price,
+.newitem__skeleton--like,
+.newitem__skeleton--author {
+  margin-top: 12px;
+}
+
+.newitem__skeleton--title {
+  width: 150px;
+  height: 24px;
+}
+
+.newitem__skeleton--price {
+  width: 120px;
+  height: 24px
+}
+
+.newitem__skeleton--like {
+  width: 50px;
+  height: 24px;
 }
