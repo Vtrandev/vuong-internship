@@ -57,13 +57,13 @@ const HotCollections = () => {
             {loadingState ? (
               new Array(4).fill(0).map((_, index) => (
              <div className="nft_coll" key={index}>
-                <div className="nft_wrap hotcollection__skeleton">
+                <div className="nft_wrap hotcollection__skeleton skeleton-box">
                 </div>
-                <div className="nft_coll_pp hotcollection__skeleton--author">
+                <div className="nft_coll_pp hotcollection__skeleton--author skeleton-box">
                 </div>
                 <div className="nft_coll_info nft__column">
-                  <div className="hotcollection__skeleton--title"></div>
-                  <div className="hotcollection__skeleton--code"></div>
+                  <div className="hotcollection__skeleton--title skeleton-box"></div>
+                  <div className="hotcollection__skeleton--code skeleton-box"></div>
                 </div>
               </div>))) : (
               userId.map((user, index) => (
