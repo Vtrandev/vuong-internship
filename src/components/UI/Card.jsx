@@ -8,7 +8,6 @@ const Card = ({item, index, loading}) => {
     useEffect(() => {
       setTimeout(() => {
         timeSet()
-        console.log('time')
       }, 1000);
     }, [time]);
 
