@@ -5,9 +5,12 @@ import Skeleton from "./Skeleton";
 const Card = ({item, index, loading}) => {
   const [time, setTime] = useState("");
 
-  useEffect(() => {
-    timeSet();
-  }, [item]);
+    useEffect(() => {
+      setTimeout(() => {
+        timeSet()
+        console.log('time')
+      }, 1000);
+    }, [time]);
 
   function timeSet() {
     setTime(Date.now());
@@ -19,11 +22,11 @@ const Card = ({item, index, loading}) => {
     let minutesLeft = secondleft / 60;
     let hoursLeft = minutesLeft / 60;
 
-    let secondsText = Math.floor(secondleft) % 60;
-    let minutesText = Math.floor(minutesLeft) % 60;
-    let hoursText = Math.floor(hoursLeft) % 60;
+    let secText = Math.floor(secondleft) % 60;
+    let minText = Math.floor(minutesLeft) % 60;
+    let hrText = Math.floor(hoursLeft) % 60;
 
-    return hoursText + "h " + minutesText + "m " + secondsText + "s";
+    return hrText + "h " + minText + "m " + secText + "s";
   }
 
   return (

@@ -10,13 +10,13 @@ const ExploreItems = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setSlice(8);
       fetchItem();
       setLoading(false);
     }, 1500);
   }, []);
 
   async function fetchItem() {
+    setSlice(8);
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
     );
