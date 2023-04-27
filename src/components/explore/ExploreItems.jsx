@@ -11,8 +11,7 @@ const ExploreItems = () => {
   useEffect(() => {
     setTimeout(() => {
       fetchItem();
-      setLoading(false);
-    }, 1500);
+    }, 500);
   }, []);
 
   async function fetchItem() {
@@ -21,6 +20,8 @@ const ExploreItems = () => {
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
     );
     setNftItem(data);
+    setLoading(false);
+
   }
 
   async function filterItem(value) {

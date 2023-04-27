@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
 
-const Card = ({item, index, loading}) => {
-  const [time, setTime] = useState("");
+const Card = ({ item, loading, collection }) => {
+  const [time, setTime] = useState();
 
-    useEffect(() => {
-      setTimeout(() => {
-        timeSet()
-      }, 1000);
-    }, [time]);
-
-  function timeSet() {
-    setTime(Date.now());
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(Date.now());
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
   function Timing(expiryDate) {
     let milliseconds = expiryDate - time;
@@ -25,13 +22,13 @@ const Card = ({item, index, loading}) => {
     let minText = Math.floor(minutesLeft) % 60;
     let hrText = Math.floor(hoursLeft) % 60;
 
-    return hrText + "h " + minText + "m " + secText + "s";
+    return hrText + "h " + minText + "m " + secText + "s"
   }
 
   return (
     <>
       {loading ? (
-        <div className="nft__item" key={index}>
+        <div className="nft__item">
           <div className="author_list_pp">
             <Skeleton width={50} height={50} borderRadius={50} />
             <i className="fa fa-check"></i>
@@ -53,15 +50,19 @@ const Card = ({item, index, loading}) => {
           </div>
         </div>
       ) : (
-        <div className="nft__item" key={index}>
+        <div className="nft__item">
           <div className="author_list_pp">
             <Link
-              to="/author"
+              to={`/author/${item.authorId || collection.authorId}`}
               data-bs-toggle="tooltip"
               data-bs-placement="top"
-              title="Creator: Monica Lucas"
+              title="Creator:"
             >
-              <img className="lazy" src={item.authorImage} alt="" />
+              <img
+                className="lazy"
+                src={item.authorImage || collection.authorImage}
+                alt=""
+              />
               <i className="fa fa-check"></i>
             </Link>
           </div>
