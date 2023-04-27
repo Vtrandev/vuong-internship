@@ -4,15 +4,17 @@ import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 
 const TopSellers = () => {
-  const [topSellers, setTopSellers ] = useState([]);
+  const [topSellers, setTopSellers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchTopSellers();
-  }, [loading])
-  
+  }, [loading]);
+
   async function fetchTopSellers() {
-    const { data } = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers')
+    const { data } = await axios.get(
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+    );
     setTopSellers(data);
     setLoading(false);
   }
@@ -31,16 +33,18 @@ const TopSellers = () => {
             <ol className="author_list">
               {loading
                 ? new Array(12).fill(0).map((_, index) => (
-                  <li key={index}>
-                  <div className="author_list_pp">
-                  <Skeleton width={50} height={50} borderRadius={80} />
-                      <i className="fa fa-check"></i>
-                  </div>
-                  <div className="author_list_info">
-                  <div><Skeleton width={100} height={20} /></div>
-                  <Skeleton width={50} height={20} />
-                  </div>
-                </li>
+                    <li key={index}>
+                      <div className="author_list_pp">
+                        <Skeleton width={50} height={50} borderRadius={80} />
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="author_list_info">
+                        <div>
+                          <Skeleton width={100} height={20} />
+                        </div>
+                        <Skeleton width={50} height={20} />
+                      </div>
+                    </li>
                   ))
                 : topSellers.map((sellers, index) => (
                     <li key={index}>
@@ -55,7 +59,9 @@ const TopSellers = () => {
                         </Link>
                       </div>
                       <div className="author_list_info">
-                        <Link to={`/author/${sellers.authorId}`}>{sellers.authorName}</Link>
+                        <Link to={`/author/${sellers.authorId}`}>
+                          {sellers.authorName}
+                        </Link>
                         <span>{sellers.price} ETH</span>
                       </div>
                     </li>
