@@ -12,6 +12,10 @@ const Author = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       fetchAuthorItems();
     }, 500);
@@ -46,6 +50,7 @@ const Author = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
+                
                 {loading ? (
                   <div className="d_profile de-flex">
                     <div className="de-flex-col">

@@ -89,7 +89,7 @@ const Card = ({ item, loading, collection }) => {
               </div>
             </div>
 
-            <Link to="/item-details">
+            <Link to={`/item-details/${item.nftId || collection.nftId}`}>
               <img
                 src={item.nftImage}
                 className="lazy nft__item_preview"
@@ -98,7 +98,7 @@ const Card = ({ item, loading, collection }) => {
             </Link>
           </div>
           <div className="nft__item_info">
-            <Link to="/item-details">
+            <Link to={`/item-details/${item.nftId || collection.nftId}`}>
               <h4>{item.title}</h4>
             </Link>
             <div className="nft__item_price">{item.price} ETH</div>
