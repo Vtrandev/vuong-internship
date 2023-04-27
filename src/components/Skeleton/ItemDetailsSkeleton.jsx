@@ -1,5 +1,5 @@
 import React from "react";
-import Skeleton from "../components/UI/Skeleton";
+import Skeleton from "../UI/Skeleton";
 
 const ItemDetailsSkeleton = () => {
   return (
