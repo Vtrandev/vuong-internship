@@ -11,7 +11,6 @@ const NewItems = () => {
 
   useEffect(() => {
     fetchNewItem();
-    setLoadingState(false);
   }, [loadingState]);
 
   async function fetchNewItem() {
@@ -19,6 +18,7 @@ const NewItems = () => {
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
     );
     setNewItem(data);
+    setLoadingState(false);
   }
 
   const options = {
@@ -53,11 +53,11 @@ const NewItems = () => {
             {loadingState
               ? new Array(4)
                   .fill(0)
-                  .map((item, index) => (
-                    <Card item={item} loading={loadingState} />
+                  .map((_, index) => (
+                    <Card key={index} loading={loadingState} />
                   ))
               : newItem.map((item, index) => (
-                  <Card item={item} index={index} />
+                  <Card item={item} key={index} />
                 ))}
           </ReactOwlCarousel>
         </div>
