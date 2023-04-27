@@ -42,7 +42,13 @@ const HotCollections = () => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
           <div className="col-lg-12">
             <div className="text-center">
               <h2>Hot Collections</h2>
@@ -50,52 +56,47 @@ const HotCollections = () => {
             </div>
           </div>
 
-          <ReactOwlCarousel
-            className="navClass"
-            {...options}
-          >
-            {loadingState ? (
-              new Array(4).fill(0).map((_, index) => (
-             <div className="nft_coll" key={index}>
-                <div className="nft_wrap hotcollection__skeleton skeleton-box">
-                </div>
-                <div className="nft_coll_pp hotcollection__skeleton--author skeleton-box">
-                </div>
-                <div className="nft_coll_info nft__column">
-                  <div className="hotcollection__skeleton--title skeleton-box"></div>
-                  <div className="hotcollection__skeleton--code skeleton-box"></div>
-                </div>
-              </div>))) : (
-              userId.map((user, index) => (
-                <div className="nft_coll" key={index}>
-                  <div className="nft_wrap">
-                    <Link to={`/item-details/${user.nftId}`}>
-                      <img
-                        src={user.nftImage}
-                        className="lazy img-fluid"
-                        alt=""
-                      />
-                    </Link>
+          <ReactOwlCarousel className="navClass" {...options}>
+            {loadingState
+              ? new Array(4).fill(0).map((_, index) => (
+                  <div className="nft_coll" key={index}>
+                    <div className="nft_wrap hotcollection__skeleton skeleton-box"></div>
+                    <div className="nft_coll_pp hotcollection__skeleton--author skeleton-box"></div>
+                    <div className="nft_coll_info nft__column">
+                      <div className="hotcollection__skeleton--title skeleton-box"></div>
+                      <div className="hotcollection__skeleton--code skeleton-box"></div>
+                    </div>
                   </div>
-                  <div className="nft_coll_pp">
-                    <Link to={`/author/${user.authorId}`}>
-                      <img
-                        className="lazy pp-coll"
-                        src={user.authorImage}
-                        alt=""
-                      />
-                    </Link>
-                    <i className="fa fa-check"></i>
+                ))
+              : userId.map((user, index) => (
+                  <div className="nft_coll" key={index}>
+                    <div className="nft_wrap">
+                      <Link to={`/item-details/${user.nftId}`}>
+                        <img
+                          src={user.nftImage}
+                          className="lazy img-fluid"
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                    <div className="nft_coll_pp">
+                      <Link to={`/author/${user.authorId}`}>
+                        <img
+                          className="lazy pp-coll"
+                          src={user.authorImage}
+                          alt=""
+                        />
+                      </Link>
+                      <i className="fa fa-check"></i>
+                    </div>
+                    <div className="nft_coll_info">
+                      <Link to="/explore">
+                        <h4>{user.title}</h4>
+                      </Link>
+                      <span>ERC-{user.code}</span>
+                    </div>
                   </div>
-                  <div className="nft_coll_info">
-                    <Link to="/explore">
-                      <h4>{user.title}</h4>
-                    </Link>
-                    <span>ERC-{user.code}</span>
-                  </div>
-                </div>
-              ))
-            )}
+                ))}
           </ReactOwlCarousel>
         </div>
       </div>

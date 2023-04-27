@@ -25,6 +25,7 @@ const ItemDetails = () => {
     );
     setNftItems(data);
     setLoading(false);
+    console.log(nftItems);
   }
 
   return (
@@ -89,7 +90,7 @@ const ItemDetails = () => {
                           <h6>Creator</h6>
                           <div className="item_author">
                             <div className="author_list_pp">
-                              <Link to={`/author/${nftItems.ownerId}`}>
+                              <Link to={`/author/${nftItems.creatorId}`}>
                                 <img
                                   className="lazy"
                                   src={nftItems.creatorImage}
@@ -99,7 +100,7 @@ const ItemDetails = () => {
                               </Link>
                             </div>
                             <div className="author_list_info">
-                              <Link to={`/author/${nftItems.ownerId}`}>
+                              <Link to={`/author/${nftItems.creatorId}`}>
                                 {nftItems.creatorName}
                               </Link>
                             </div>

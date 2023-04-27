@@ -42,7 +42,13 @@ const NewItems = () => {
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div
+          className="row"
+          data-aos="fade-left"
+          data-aos-delay="200"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
           <div className="col-lg-12">
             <div className="text-center">
               <h2>New Items</h2>
@@ -56,9 +62,7 @@ const NewItems = () => {
                   .map((_, index) => (
                     <Card key={index} loading={loadingState} />
                   ))
-              : newItem.map((item, index) => (
-                  <Card item={item} key={index} />
-                ))}
+              : newItem.map((item, index) => <Card item={item} key={index} />)}
           </ReactOwlCarousel>
         </div>
       </div>
